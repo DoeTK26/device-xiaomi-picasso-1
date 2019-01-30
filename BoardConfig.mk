@@ -181,6 +181,12 @@ BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
     device/qcom/sepolicy/generic/public \
     device/qcom/sepolicy/qva/public
 
+# Telephony
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+
+# Power
+TARGET_TAP_TO_WAKE_NODE := "/dev/input/event3"
+
 # Treble
 #BOARD_VNDK_VERSION := current
 #PRODUCT_FULL_TREBLE_OVERRIDE := true
