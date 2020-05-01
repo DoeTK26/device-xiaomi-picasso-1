@@ -91,6 +91,10 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0
 
+# Displayfeature
+PRODUCT_PACKAGES += \
+    vendor.xiaomi.hardware.displayfeature@1.0.vendor
+
 # Init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc

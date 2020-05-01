@@ -59,5 +59,14 @@ product/framework/QtiTelephonyServicelibrary.jar
 # Smali edited: Removed `miui.os.Build` dependency in `WifiManagerCompatible.isNeeded()`
 product/framework/qti-telephony-common.jar|d53c26a3df5ae5d3218caca05a89dcbaa9a1810f
 
-# Power-off charging daemon
-bin/charger
+# Displayfeature
+vendor/bin/hw/vendor.xiaomi.hardware.displayfeature@1.0-service
+vendor/etc/dsi_g7b_37_02_0a_video_display_mi.xml
+vendor/etc/dsi_g7b_37_02_0b_video_display_mi.xml
+vendor/etc/dsi_g7b_42_02_0b_video_display_mi.xml
+vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
+vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
+vendor/lib64/hw/displayfeature.default.so
+vendor/lib64/libclient2slpi.notifier.so
+vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.0.so
+vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.1.so
