@@ -3,11 +3,15 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-
 BOARD_VENDOR := xiaomi
 DEVICE_PATH := device/xiaomi/picasso
+#VENDOR_PATH := device/xiaomi/picasso
+ANDROID_TOP := $(shell pwd)
 
 BUILD_BROKEN_DUP_RULES := true
+
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_BOARD_PLATFORM := lito
 
 # Architecture
 TARGET_ARCH := arm64
@@ -41,6 +45,9 @@ TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtbCM-20.7.30
 #BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img-20.7.30
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel-20.7.30
+#TARGET_KERNEL_CLANG_COMPILE := true
+#TARGET_KERNEL_NO_LLVM_BINUTILS := true
+TARGET_KERNEL_CLANG_VERSION := 11
 ifeq ($(TARGET_PREBUILT_KERNEL),)
   TARGET_KERNEL_SOURCE := kernel/xiaomi/sm7250
   TARGET_KERNEL_CONFIG := vendor/picasso_user_defconfig
@@ -55,6 +62,7 @@ BOARD_MKBOOTIMG_ARGS += --base $(BOARD_KERNEL_BASE)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE) --board ""
+
 
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
@@ -113,10 +121,13 @@ TARGET_BOOTLOADER_BOARD_NAME := lito
 TARGET_NO_BOOTLOADER := true
 
 # Camera
-TARGET_USES_PREBUILT_CAMERA_SERVICE := true
+#TARGET_USES_PREBUILT_CAMERA_SERVICE := true
 
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
+
+# Display
+#TARGET_USES_HWC2 := true
 
 # Dex
 ifeq ($(HOST_OS),linux)
@@ -139,8 +150,8 @@ BOARD_HAS_QCA_FM_SOC := "cherokee"
 BOARD_HAVE_QCOM_FM := true
 
 # HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibility_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
+#DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibility_matrix.xml
+#DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 
 # Neverallows
 SELINUX_IGNORE_NEVERALLOWS := true
@@ -150,7 +161,7 @@ TARGET_USES_INTERACTION_BOOST := true
 TARGET_TAP_TO_WAKE_NODE := "/dev/input/event3"
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+#TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # RIL
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
@@ -168,8 +179,8 @@ BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
     device/qcom/sepolicy/qva/public
 
 # Treble
-BOARD_VNDK_VERSION := current
-PRODUCT_FULL_TREBLE_OVERRIDE := true
+#BOARD_VNDK_VERSION := current
+#PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -178,3 +189,8 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/picasso/BoardConfigVendor.mk
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(VENDOR_PATH) \
+    hardware/google/pixel

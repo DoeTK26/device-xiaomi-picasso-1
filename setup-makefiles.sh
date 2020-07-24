@@ -1,6 +1,6 @@
 "#!/bin/bash
 #
-# Copyright (C) 2020 The DUOS Project
+# Copyright (C) 2020 The SYBERIAOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -16,9 +16,9 @@ INITIAL_COPYRIGHT_YEAR=2020
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-DU_ROOT="${MY_DIR}/../../.."
+SYBERIA_ROOT="${MY_DIR}/../../.."
 
-HELPER="${DU_ROOT}/vendor/du/build/tools/extract_utils.sh"
+HELPER="${SYBERIA_ROOT}/vendor/syberia/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -26,7 +26,7 @@ fi
 source "${HELPER}"
 
 # Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${DU_ROOT}"
+setup_vendor "${DEVICE}" "${VENDOR}" "${SYBERIA_ROOT}"
 
 # Copyright headers and guards
 write_headers
