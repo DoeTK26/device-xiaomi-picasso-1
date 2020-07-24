@@ -63,11 +63,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/devicesettings/privapp-permissions-devicesettings.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-devicesettings.xml
 
-# Audio
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc)
-
-# Consumer IR
+# fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
 

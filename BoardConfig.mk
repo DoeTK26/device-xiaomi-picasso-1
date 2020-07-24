@@ -57,6 +57,7 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm7250
 TARGET_KERNEL_CONFIG := vendor/picasso_user_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
+#TARGET_KERNEL_CLANG_VERSION := $(shell sh -c "find prebuilts/clang/host/linux-x86/ -type f -name clang -printf \"%T@ %Tc %p\n\" | sort -n | tail -n1 | sed 's/.*clang-\(.*\)\/bin.*/\1/'")
 NEED_KERNEL_MODULE_SYSTEM:= true
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
