@@ -28,7 +28,6 @@ AB_OTA_UPDATER := false
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService
-    vendor.xiaomi.hardware.fingerprintextension@1.0
     
 # Charging
 PRODUCT_PACKAGES += \

@@ -1,4 +1,4 @@
-"#!/bin/bash
+#!/bin/bash
 #
 # Copyright (C) 2020 The AOSPOS Project
 #
@@ -33,8 +33,6 @@ write_headers
 
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
-cat << EOF >> "$ANDROIDMK"
-EOF
 
 # Finish
 write_footers
