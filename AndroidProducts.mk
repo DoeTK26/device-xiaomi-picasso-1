@@ -5,4 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_picasso.mk
+    $(LOCAL_DIR)/syberia_picasso.mk
+
+COMMON_LUNCH_CHOICES := \
+    syberia_picasso-user \
+    syberia_picasso-userdebug \
+    syberia_picasso-eng
