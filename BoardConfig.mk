@@ -15,7 +15,7 @@ TARGET_BOARD_PLATFORM := lito
 
 
 # Properties
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+#TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Architecture
@@ -218,8 +218,8 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_TAP_TO_WAKE_NODE := "/dev/input/event3"
 
 # Treble
-#BOARD_VNDK_VERSION := current
-#PRODUCT_FULL_TREBLE_OVERRIDE := true
+BOARD_VNDK_VERSION := current
+PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
