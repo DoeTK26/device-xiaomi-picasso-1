@@ -120,3 +120,47 @@ Return<void> Power::powerHintAsync_1_2(PowerHint_1_2 hint, int32_t data) {
 }  // namespace power
 }  // namespace hardware
 }  // namespace android
+
+static int sysfs_write(const char *path, const char *s)
+{
+    char buf[80];
+    int len;
+    int ret = 0;
+    int fd = open(path, O_WRONLY);
+
+    if (fd < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error opening %s: %s\n", path, buf);
+        return -1 ;
+    }
+
+    len = write(fd, s, strlen(s));
+    if (len < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error writing to %s: %s\n", path, buf);
+
+        ret = -1;
+    }
+
+    close(fd);
+
+    return ret;
+}
+
+
+Return<void> Power::setFeature(Feature feature, bool activate) {
+    switch (feature) {
+        case Feature::POWER_FEATURE_DOUBLE_TAP_TO_WAKE: {
+            sysfs_write(TARGET_TAP_TO_WAKE_NODE, activate ? "1" : "0");
+            } break;
+        default:
+            break;
+    }
+    return Void();
+}
+
+Return<void> Power::getPlatformLowPowerStats(getPlatformLowPowerStats_cb _hidl_cb) {
+    LOG(ERROR) << "getPlatformLowPowerStats not supported. Use IPowerStats HAL.";
+    _hidl_cb({}, Status::SUCCESS);
+    return Void();
+}
