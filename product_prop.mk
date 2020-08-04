@@ -21,8 +21,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Bluetooth
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac \
-    persist.vendor.btstack.enable.splita2dp=true \
     ro.bluetooth.library_name=libbluetooth.so
 
 # Camera
